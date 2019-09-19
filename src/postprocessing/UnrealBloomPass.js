@@ -226,11 +226,11 @@ UnrealBloomPass.prototype = Object.assign( Object.create( Pass.prototype ), {
 			this.quad.material = this.separableBlurMaterials[ i ];
 
 			this.separableBlurMaterials[ i ].uniforms[ "colorTexture" ].value = inputRenderTarget.texture;
-			this.separableBlurMaterials[ i ].uniforms[ "direction" ].value = THREE.UnrealBloomPass.BlurDirectionX;
+			this.separableBlurMaterials[ i ].uniforms[ "direction" ].value = UnrealBloomPass.BlurDirectionX;
 			renderer.render( this.scene, this.camera, this.renderTargetsHorizontal[ i ], true );
 
 			this.separableBlurMaterials[ i ].uniforms[ "colorTexture" ].value = this.renderTargetsHorizontal[ i ].texture;
-			this.separableBlurMaterials[ i ].uniforms[ "direction" ].value = THREE.UnrealBloomPass.BlurDirectionY;
+			this.separableBlurMaterials[ i ].uniforms[ "direction" ].value = UnrealBloomPass.BlurDirectionY;
 			renderer.render( this.scene, this.camera, this.renderTargetsVertical[ i ], true );
 
 			inputRenderTarget = this.renderTargetsVertical[ i ];
